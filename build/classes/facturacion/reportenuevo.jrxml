@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="550" pageHeight="550" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e49a28a-fd88-4381-ac15-f82460265a96">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="factura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     detalle_factura.`ID_producto` AS detalle_factura_ID_producto,
+     detalle_factura.`Nombrepro` AS detalle_factura_Nombrepro,
+     detalle_factura.`Precio` AS detalle_factura_Precio,
+     detalle_factura.`Cantidad` AS detalle_factura_Cantidad,
+     factura.`ID_detalle` AS factura_ID_detalle,
+     factura.`Nombre_empleado` AS factura_Nombre_empleado,
+     factura.`Apellido_empleado` AS factura_Apellido_empleado,
+     factura.`ID_cliente` AS factura_ID_cliente,
+     factura.`Nombre` AS factura_Nombre,
+     factura.`Apellido` AS factura_Apellido,
+     factura.`Total` AS factura_Total,
+     factura.`Fecha_compra` AS factura_Fecha_compra
+FROM
+     pasteleriadulcedeleche.detalle_factura,
+
+     pasteleriadulcedeleche.factura
+WHERE detalle_factura.ID_detalle = $P{factura} AND
+factura.ID_detalle=$P{factura}]]>
+	</queryString>
+	<field name="detalle_factura_ID_producto" class="java.lang.Integer"/>
+	<field name="detalle_factura_Nombrepro" class="java.lang.String"/>
+	<field name="detalle_factura_Precio" class="java.lang.Integer"/>
+	<field name="detalle_factura_Cantidad" class="java.lang.Integer"/>
+	<field name="factura_ID_detalle" class="java.lang.Integer"/>
+	<field name="factura_Nombre_empleado" class="java.lang.String"/>
+	<field name="factura_Apellido_empleado" class="java.lang.String"/>
+	<field name="factura_ID_cliente" class="java.lang.Integer"/>
+	<field name="factura_Nombre" class="java.lang.String"/>
+	<field name="factura_Apellido" class="java.lang.String"/>
+	<field name="factura_Total" class="java.lang.Integer"/>
+	<field name="factura_Fecha_compra" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="158" splitType="Stretch">
+			<rectangle>
+				<reportElement x="5" y="13" width="510" height="145" uuid="794a1047-e236-42fd-8bad-808d5a4dab69"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="122" y="24" width="306" height="34" uuid="13219740-ddf3-445e-8e9e-ac00662398a1"/>
+				<textElement>
+					<font fontName="Ebrima" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pasteleria dulce de leche]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="58" width="222" height="20" uuid="d498752e-43f3-411a-a763-3af801102b34"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA["Endulzando tu alma con miles de sabores"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="78" width="100" height="20" uuid="0786b7a8-d8ff-4f53-abe0-c734e8cc312f"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Ebrima" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="108" width="100" height="20" uuid="71b1c0d1-0561-4dc2-b078-a5e370fd4eaa"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NUMERO FACTURA.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="326" y="108" width="100" height="20" uuid="b9327af8-a695-453d-96f7-db9f244e1cd1"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_ID_detalle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="179" y="128" width="58" height="20" uuid="3cb5692c-0947-479e-be42-22062fa4c3e0"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="328" y="128" width="100" height="20" uuid="a4052d51-debb-43de-9fa0-dd5fb715f323"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Fecha_compra}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="201" splitType="Stretch">
+			<rectangle>
+				<reportElement x="277" y="11" width="238" height="101" uuid="66190f6d-05d2-40a7-a4e8-36843280d128"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="5" y="11" width="272" height="101" uuid="04de5c6a-e2c3-4521-91f8-ee580a9b6346"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="86" y="16" width="132" height="25" uuid="2395f97a-ed8f-436d-a7ab-dfd943e7ba47"/>
+				<textElement>
+					<font fontName="Ebrima" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="36" width="100" height="20" uuid="273221ca-32c8-4eeb-8a08-03b4c05b6b04"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="56" width="100" height="20" uuid="4b2ee679-2f2e-4ca0-81bc-501540014ebb"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="76" width="100" height="20" uuid="c75dd14d-da34-45a1-8213-ef82576301c3"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="122" y="36" width="100" height="20" uuid="d63f8a3e-746b-4c8f-93f4-474fff390a18"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_ID_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="56" width="100" height="20" uuid="0611aa97-9498-4b10-963a-439fda637cf1"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="76" width="100" height="20" uuid="d458a55b-5f84-4c9c-b5c8-5f592475228b"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Apellido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="126" width="193" height="20" uuid="c8ba78dd-4e11-4549-928a-8e82d2614549"/>
+				<textElement>
+					<font fontName="Ebrima" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DE LA COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="16" width="193" height="20" uuid="7643669c-ae5d-4292-aa50-1b673a038084"/>
+				<textElement>
+					<font fontName="Ebrima" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="41" width="100" height="20" uuid="05c02d7a-a8ce-4c03-8061-179d4eb39ece"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="61" width="100" height="20" uuid="4ca87798-4685-48df-ba18-ebd42f179d23"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="41" width="100" height="20" uuid="3f7701f4-dcf7-4fb1-918a-63654ca77aca"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="61" width="100" height="20" uuid="a29c633e-d7a1-447b-ab10-3e03ef54f7d0"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Apellido_empleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="158" width="61" height="20" uuid="d312fd17-0945-4240-9843-9f626475e26b"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="158" width="61" height="20" uuid="7765e819-c45d-4efc-8be3-856b5643b6b7"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="158" width="61" height="20" uuid="1bf47312-cbe9-46c2-8d50-a5c0a69b70a3"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="158" width="61" height="20" uuid="f298e074-09d4-42e5-88d2-c7ca9693bcac"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="86" y="0" width="93" height="20" uuid="e61e20da-5057-49de-9a83-22251577dee7"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Nombrepro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="0" width="42" height="20" uuid="568c1c07-d77a-43bd-bfae-cae9a99616c8"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="0" width="50" height="20" uuid="5fc304a5-54f2-4c51-8ca6-bdd7021e133d"/>
+				<textElement>
+					<font fontName="Ebrima"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_ID_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="100" height="20" uuid="b57469dc-9eb3-4dd1-b8f2-191ec025c11f"/>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="415" y="0" width="61" height="20" uuid="46083f38-8a44-4b79-9a7c-98b7bebbc98e"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="483" y="0" width="27" height="20" uuid="dc04115f-a251-4776-ba7f-c5bac655cd7c"/>
+				<textFieldExpression><![CDATA[$F{factura_Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

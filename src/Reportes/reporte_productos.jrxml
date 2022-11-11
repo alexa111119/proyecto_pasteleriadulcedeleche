@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="233f8c18-9182-4914-8c91-79ab723d72ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     producto_postres.`ID_producto` AS producto_postres_ID_producto,
+     producto_postres.`Nombre` AS producto_postres_Nombre,
+     producto_postres.`Precio` AS producto_postres_Precio,
+     producto_postres.`Descripcion` AS producto_postres_Descripcion,
+     producto_postres.`Ingredientes` AS producto_postres_Ingredientes,
+     producto_postres.`Cantidad_en_existencia` AS producto_postres_Cantidad_en_existencia,
+     producto_postres.`Codigo_producto` AS producto_postres_Codigo_producto
+FROM
+     pasteleriadulcedeleche.producto_postres]]>
+	</queryString>
+	<field name="producto_postres_ID_producto" class="java.lang.Integer"/>
+	<field name="producto_postres_Nombre" class="java.lang.String"/>
+	<field name="producto_postres_Precio" class="java.lang.Integer"/>
+	<field name="producto_postres_Descripcion" class="java.lang.String"/>
+	<field name="producto_postres_Ingredientes" class="java.lang.String"/>
+	<field name="producto_postres_Cantidad_en_existencia" class="java.lang.Integer"/>
+	<field name="producto_postres_Codigo_producto" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="6" width="357" height="53" uuid="ce87b286-b43e-414d-9535-641a1d591e04"/>
+				<textElement>
+					<font fontName="Ebrima" size="30" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pasteleria dulce de leche]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="59" width="100" height="20" uuid="59f0fbc7-cf37-4507-90a7-0b02a38d64cc"/>
+				<textElement>
+					<font fontName="Ebrima" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Productos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="380" y="6" width="68" height="63" uuid="275bbf42-b3d4-4990-92b2-3643346c517a"/>
+				<imageExpression><![CDATA["C:\\Users\\DELL\\Documents\\NetBeansProjects\\pasterleriadulcedeleche2\\build\\classes\\img\\icono2_1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="8" width="100" height="20" uuid="91cc7791-411d-471e-8bef-2a0cc73f43ae"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID_producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="8" width="100" height="20" uuid="d6fb4005-ad86-46c5-a6f2-31a3745cd610"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="8" width="72" height="20" uuid="cc6016f2-3459-498a-91d7-e4ac1f7665e4"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="8" width="135" height="20" uuid="3db4b9a7-1573-485c-bc36-8d5c97c9ff04"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad en existencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="8" width="137" height="20" uuid="4596a866-1492-40f5-a568-eff16fa2dd95"/>
+				<textElement>
+					<font fontName="Ebrima" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ingredientes]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="78" height="20" uuid="e97fd41c-13c3-4a5b-94fb-652775a91985"/>
+				<textFieldExpression><![CDATA[$F{producto_postres_ID_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="100" height="20" uuid="626a7f53-af13-458b-be35-8e60ae6b9293"/>
+				<textFieldExpression><![CDATA[$F{producto_postres_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="0" width="67" height="20" uuid="ca3bcdc8-3ef6-4c83-bf11-00bda7e265b4"/>
+				<textFieldExpression><![CDATA[$F{producto_postres_Precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="0" width="137" height="20" uuid="b1429c18-d83d-4c09-ada3-c5ecdf82b0cf"/>
+				<textFieldExpression><![CDATA[$F{producto_postres_Ingredientes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="135" height="20" uuid="f40b818d-8454-460d-864b-1bb791517923"/>
+				<textFieldExpression><![CDATA[$F{producto_postres_Cantidad_en_existencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
